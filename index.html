@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <!-- Meta refresh for older browsers or if JavaScript is disabled -->
+    <meta http-equiv="refresh" content="0; url=pages/bank/account-summary.html">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirecting...</h1>
+        <p>You are being redirected to the <a href="pages/bank/account-summary.html">Account Summary</a> page.</p>
+        <p>If you are not redirected automatically, please click the link above.</p>
+    </div>
+
+    <script type="text/javascript">
+        // JavaScript redirect for a smoother experience
+        window.onload = function() {
+            // Give a small delay to show the message before redirecting
+            setTimeout(function() {
+                window.location.href = "pages/bank/account-summary.html";
+            }, 1000); // Redirect after 1 second
+        };
+    </script>
+</body>
+</html>
