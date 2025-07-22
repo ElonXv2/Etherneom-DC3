@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - ETHERNEOM DC³ BANK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('contact-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen px-2">
+
+  <!-- Success Notification -->
+  <div id="successNotification" class="fixed top-6 right-6 bg-green-500 text-white px-4 py-2 rounded shadow-md hidden z-50">
+    ✅ Message sent! Redirecting...
+  </div>
+
+  <div class="form-container w-full max-w-2xl mx-auto rounded-lg overflow-hidden">
+    <div class="bg-gray-800 p-4">
+      <h2 class="text-xl font-bold text-white">New Message</h2>
+    </div>
+
+    <form id="contactForm" class="p-4 sm:p-6 space-y-4">
+      <!-- To Field -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 border-b border-gray-300 pb-2">
+        <label for="to" class="text-gray-500 w-full sm:w-16">To</label>
+        <input type="email" id="to" name="to" value="elonxaispacecapsule@gmail.com" readonly class="w-full flex-1 bg-transparent text-gray-800 focus:outline-none">
+      </div>
+
+      <!-- From Field -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 border-b border-gray-300 pb-2">
+        <label for="from" class="text-gray-500 w-full sm:w-16">From</label>
+        <input type="email" id="from" name="from" placeholder="your-email@example.com" required class="w-full flex-1 bg-transparent text-gray-800 placeholder-gray-400 focus:outline-none">
+      </div>
+
+      <!-- Subject Field -->
+      <div class="border-b border-gray-300 pb-2">
+        <input type="text" id="subject" name="subject" placeholder="Subject" required class="w-full bg-transparent text-gray-800 placeholder-gray-400 focus:outline-none font-medium">
+      </div>
+
+      <!-- Message Field -->
+      <div>
+        <textarea id="message" name="message" rows="10" placeholder="Compose your message..." required class="w-full bg-transparent text-gray-800 placeholder-gray-400 focus:outline-none resize-none"></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-4 gap-4">
+        <button type="submit" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300">
+          Send
+        </button>
+        <a href="login.html" class="text-sm text-gray-600 hover:text-gray-800">Back to Login</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- JavaScript: Notification + Redirect + mailto -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const to = document.getElementById('to').value;
+      const from = document.getElementById('from').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}%0A%0AFrom:%20${encodeURIComponent(from)}`;
+
+      // Open mail client
+      window.location.href = mailtoLink;
+
+      // Show success notification
+      const notification = document.getElementById('successNotification');
+      notification.classList.remove('hidden');
+
+      // Redirect after 3 seconds
+      setTimeout(() => {
+        notification.classList.add('hidden');
+        window.location.href = 'login.html';
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
